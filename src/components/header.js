@@ -22,11 +22,14 @@ const styles = {
   }
 };
 
-const Header = () => {
+// eslint-disable-next-line arrow-parens
+const Header = props => {
+  // eslint-disable-next-line react/prop-types
+  const { title } = props;
   const { headerTextStyle, headerViewStyle } = styles;
   return (
     <View style={headerViewStyle}>
-      <Text style={headerTextStyle}>Cards</Text>
+      <Text style={headerTextStyle}>{title}</Text>
     </View>
   );
 };
