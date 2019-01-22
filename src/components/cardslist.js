@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { View, ScrollView } from "react-native";
 import axios from "axios";
+import CardDetails from "./carddetails";
 
 class CardsList extends Component {
   state = {
@@ -16,9 +17,17 @@ class CardsList extends Component {
   render() {
     return (
       <View>
-        {this.state.cards.map(card => (
-          <Text key={card.title}>{card.title}</Text>
-        ))}
+        <ScrollView>
+          {this.state.cards.map(card => (
+            <CardDetails
+              key={card.title}
+              title={card.title}
+              artist={card.artist}
+              thumb_img={card.thumbnail_image}
+              img={card.image}
+            />
+          ))}
+        </ScrollView>
       </View>
     );
   }
